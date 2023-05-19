@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Bullet" />
+        <module name="Player" />
+        <module name="CommonEnemy" />
+        <module name="Asteroid" />
+        <module name="Enemy" />
+        <module name="Collision" />
+        <module name="CommonAsteroid" />
+        <module name="Asteroid2" />
+        <module name="CommonBullet" />
+        <module name="Common" />
+        <module name="Core" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
