@@ -27,6 +27,12 @@ public class World {
         return entityMap.values();
     }
 
+    public boolean getEntity(Entity entity){
+        if (entityMap.containsKey(entity.getID())){
+            return true;
+        }else return false;
+    }
+
     public <E extends Entity> List<Entity> getEntities(Class<E>... entityTypes) {
         List<Entity> r = new ArrayList<>();
         for (Entity e : getEntities()) {

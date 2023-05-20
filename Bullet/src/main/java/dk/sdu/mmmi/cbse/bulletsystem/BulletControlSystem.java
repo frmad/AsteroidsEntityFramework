@@ -18,10 +18,10 @@ public class BulletControlSystem implements IEntityProcessingService, BulletSPI 
     @Override
     public void process(GameData gameData, World world) {
         for (Entity bullet : world.getEntities(Bullet.class)) {
-
             PositionPart positionPart = bullet.getPart(PositionPart.class);
             MovingPart movingPart = bullet.getPart(MovingPart.class);
             TimerPart timerPart = bullet.getPart(TimerPart.class);
+
             movingPart.setUp(true);
             if (timerPart.getExpiration() < 0) {
                 world.removeEntity(bullet);

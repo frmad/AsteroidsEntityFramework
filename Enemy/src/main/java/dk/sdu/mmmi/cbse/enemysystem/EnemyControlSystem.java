@@ -22,7 +22,6 @@ public class EnemyControlSystem implements IEntityProcessingService {
         for (Entity enemy : world.getEntities(Enemy.class)) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
-            LifePart lifePart = enemy.getPart(LifePart.class);
 
             Random rand = new Random();
 
@@ -42,7 +41,6 @@ public class EnemyControlSystem implements IEntityProcessingService {
 
             movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
-            lifePart.process(gameData, enemy);
 
             updateShape(enemy);
 

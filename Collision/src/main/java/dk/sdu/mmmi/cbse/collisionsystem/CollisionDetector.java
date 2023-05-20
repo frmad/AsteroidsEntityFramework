@@ -10,24 +10,23 @@ import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 public class CollisionDetector implements IPostEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
-        for (Entity entity : world.getEntities()) {
-            for (Entity collisionDetection : world.getEntities()) {
-                LifePart entityLife = entity.getPart(LifePart.class);
-
+        for (Entity hittingEntity : world.getEntities()) {
+            for (Entity collisionEntity : world.getEntities()) {
                 // if the two entities are identical, skip the iteration
-                if (entity.getID().equals(collisionDetection.getID())) {
+                if (hittingEntity.getID().equals(collisionEntity.getID())) {
                     continue;
                 }
+                LifePart hittingEntityLifePart = hittingEntity.getPart(LifePart.class);
 
                 // CollisionDetection
-                if (this.collides(entity, collisionDetection)) {
+                if (this.collides(hittingEntity, collisionEntity)) {
                     // if entity has been hit, it must have its life reduced
-                    if (entityLife.getLife() > 0) {
-                        entityLife.setLife(entityLife.getLife() - 1);
-                        entityLife.setIsHit(true);
+                    if (hittingEntityLifePart.getLife() > 0) {
+                        hittingEntityLifePart.setLife(hittingEntityLifePart.getLife() - 1);
+                        hittingEntityLifePart.setIsHit(true);
                         // if entity is out of life remove it
-                        if (entityLife.getLife() <= 0) {
-                            world.removeEntity(entity);
+                        if (hittingEntityLifePart.getLife() <= 0) {
+                            world.removeEntity(hittingEntity);
                         }
                     }
                 }
@@ -36,10 +35,10 @@ public class CollisionDetector implements IPostEntityProcessingService {
     }
 
     public Boolean collides(Entity entity, Entity entity2) {
-        PositionPart entMov = entity.getPart(PositionPart.class);
-        PositionPart entMov2 = entity2.getPart(PositionPart.class);
-        float dx = (float) entMov.getX() - (float) entMov2.getX();
-        float dy = (float) entMov.getY() - (float) entMov2.getY();
+        PositionPart entityPart = entity.getPart(PositionPart.class);
+        PositionPart entity2Part = entity2.getPart(PositionPart.class);
+        float dx = entityPart.getX() - entity2Part.getX();
+        float dy = entityPart.getY() - entity2Part.getY();
         float distance = (float) Math.sqrt(dx * dx + dy * dy);
         if (distance < (entity.getRadius() + entity2.getRadius())) {
             return true;

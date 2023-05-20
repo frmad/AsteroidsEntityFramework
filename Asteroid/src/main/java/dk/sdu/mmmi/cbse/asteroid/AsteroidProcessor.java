@@ -40,20 +40,10 @@ public class AsteroidProcessor implements IEntityProcessingService {
             if (lifePart.isHit()) {
                 asteroidSplitter.createSplitAsteroid(asteroid, world);
             }
+
             setShape(asteroid, numPoints);
         }
 
-    }
-
-    /**
-     * Dependency Injection using OSGi Declarative Services
-     */
-    public void setAsteroidSplitter(IAsteroidSplitter asteroidSplitter) {
-        this.asteroidSplitter = asteroidSplitter;
-    }
-
-    public void removeAsteroidSplitter(IAsteroidSplitter asteroidSplitter) {
-        this.asteroidSplitter = null;
     }
 
     private void setShape(Entity entity, int numPoints) {
