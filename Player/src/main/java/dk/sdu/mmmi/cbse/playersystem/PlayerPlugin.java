@@ -20,7 +20,6 @@ public class PlayerPlugin implements IGamePluginService {
         player = createPlayerShip(gameData);
         world.addEntity(player);
     }
-
     private Entity createPlayerShip(GameData gameData) {
         float deacceleration = 10;
         float acceleration = 200;
@@ -38,11 +37,5 @@ public class PlayerPlugin implements IGamePluginService {
 
         return playerShip;
     }
-
-    /*@Override
-    public void stop(GameData gameData, World world) {
-        // Remove entities
-        world.removeEntity(player);
-    }*/
 
 }
