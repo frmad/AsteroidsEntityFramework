@@ -39,10 +39,10 @@ public class PlayerPlugin implements IGamePluginService {
         return playerShip;
     }
 
-    @Override
+    /*@Override
     public void stop(GameData gameData, World world) {
         // Remove entities
         world.removeEntity(player);
-    }
+    }*/
 
 }

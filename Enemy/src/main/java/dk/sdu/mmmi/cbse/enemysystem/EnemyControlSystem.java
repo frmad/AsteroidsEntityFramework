@@ -12,8 +12,6 @@ import java.util.Random;
 
 public class EnemyControlSystem implements IEntityProcessingService {
 
-    private Entity enemy;
-
     public EnemyControlSystem() {
     }
      

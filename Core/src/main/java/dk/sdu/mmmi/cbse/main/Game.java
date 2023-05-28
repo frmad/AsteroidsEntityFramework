@@ -24,7 +24,9 @@ public class Game implements ApplicationListener {
     private final List<IPostEntityProcessingService> postEntityProcessors;
     private World world = new World();
 
-    public Game(List<IGamePluginService> gamePluginServices, List<IEntityProcessingService> entityProcessors, List<IPostEntityProcessingService> postEntityProcessors) {
+    public Game(List<IGamePluginService> gamePluginServices,
+                List<IEntityProcessingService> entityProcessors,
+                List<IPostEntityProcessingService> postEntityProcessors) {
         this.gamePluginServices = gamePluginServices;
         this.entityProcessors = entityProcessors;
         this.postEntityProcessors = postEntityProcessors;

@@ -18,13 +18,13 @@ public class Asteroid2Plugin implements IGamePluginService {
         world.addEntity(asteroid);
     }
 
-    @Override
+    /*@Override
     public void stop(GameData gameData, World world) {
         // Remove entities
         for (Entity asteroid : world.getEntities(Asteroid.class)) {
             world.removeEntity(asteroid);
         }
-    }
+    }*/
 
     private Entity createAsteroid(GameData gameData) {
         Entity asteroid = new Asteroid();

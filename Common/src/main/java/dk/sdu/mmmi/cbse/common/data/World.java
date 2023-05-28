@@ -15,10 +15,6 @@ public class World {
         return entity.getID();
     }
 
-    public void removeEntity(String entityID) {
-        entityMap.remove(entityID);
-    }
-
     public void removeEntity(Entity entity) {
         entityMap.remove(entity.getID());
     }
