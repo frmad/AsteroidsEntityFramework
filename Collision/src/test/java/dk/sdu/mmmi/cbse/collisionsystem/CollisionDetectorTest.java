@@ -84,22 +84,21 @@ class CollisionDetectorTest {
     ) {
         Entity entity = mock(Entity.class);
         when(entity.getID()).thenReturn(entityID);
-
-        LifePart lifePart1 = mock(LifePart.class);
-        when(entity.getPart(LifePart.class)).thenReturn(lifePart1);
-
-        PositionPart positionPart1 = mock(PositionPart.class);
-        when(entity.getPart(PositionPart.class)).thenReturn(positionPart1);
-
-        when(lifePart1.getLife()).thenReturn(entityLife);
-        when(positionPart1.getX()).thenReturn(entityX);
-        when(positionPart1.getY()).thenReturn(entityY);
         when(entity.getRadius()).thenReturn(entityRadius);
 
+        LifePart lifePart = mock(LifePart.class);
+        when(entity.getPart(LifePart.class)).thenReturn(lifePart);
+        when(lifePart.getLife()).thenReturn(entityLife);
+
+        PositionPart positionPart = mock(PositionPart.class);
+        when(entity.getPart(PositionPart.class)).thenReturn(positionPart);
+        when(positionPart.getX()).thenReturn(entityX);
+        when(positionPart.getY()).thenReturn(entityY);
+
         doAnswer(newLife ->{
-            when(lifePart1.getLife()).thenReturn(newLife.getArgument(0));
+            when(lifePart.getLife()).thenReturn(newLife.getArgument(0));
             return null;
-        }).when(lifePart1).setLife(anyInt());
+        }).when(lifePart).setLife(anyInt());
 
         return entity;
     }
