@@ -80,7 +80,10 @@ public class Game implements ApplicationListener {
     private void draw() {
         for (Entity entity : world.getEntities()) {
 
-            sr.setColor(1, 1, 1, 1);
+            float[] entityColor = entity.getColor();
+
+            //sr.setColor(entityColor[1], 1, 1, 1);
+            sr.setColor(entityColor[0],entityColor[1],entityColor[2],entityColor[3]);
 
             sr.begin(ShapeRenderer.ShapeType.Line);
 
