@@ -31,8 +31,8 @@ class CollisionDetectorTest {
     @Test
     void processDifPos(){
         GameData gameData = mock(GameData.class);
-        Entity entity1 = createEntity("1", 1, 1,1, 2);
-        Entity entity2 = createEntity("2",1, 30,30, 2);
+        Entity entity1 = createMockEntity("1", 1, 1,1, 2);
+        Entity entity2 = createMockEntity("2",1, 30,30, 2);
         World world = createMockWorld(entity1, entity2);
         collisionDetector.process(gameData, world);
         LifePart entity1LifePart = entity1.getPart(LifePart.class);
@@ -46,8 +46,8 @@ class CollisionDetectorTest {
     @Test
     void processSamePos(){
         GameData gameData = mock(GameData.class);
-        Entity entity1 = createEntity("1", 1, 1,1, 4);
-        Entity entity2 = createEntity("2",1, 2,1, 4);
+        Entity entity1 = createMockEntity("1", 1, 1,1, 4);
+        Entity entity2 = createMockEntity("2",1, 2,1, 4);
         World world = createMockWorld(entity1, entity2);
         collisionDetector.process(gameData, world);
         // Check that entity life is changed
@@ -58,14 +58,14 @@ class CollisionDetectorTest {
 
     @Test
     void collidesDifPos() {
-        Entity entity1 = createEntity("1", 1, 1,1, 2);
-        Entity entity2 = createEntity("2",1, 30,30, 2);
+        Entity entity1 = createMockEntity("1", 1, 1,1, 2);
+        Entity entity2 = createMockEntity("2",1, 30,30, 2);
         assertFalse(collisionDetector.collides(entity1, entity2));
     }
     @Test
     void collidesSamePos() {
-        Entity entity1 = createEntity("1", 1, 1,1, 2);
-        Entity entity2 = createEntity("2",1, 1,1, 2);
+        Entity entity1 = createMockEntity("1", 1, 1,1, 2);
+        Entity entity2 = createMockEntity("2",1, 1,1, 2);
         assertTrue(collisionDetector.collides(entity1, entity2));
     }
 
@@ -79,7 +79,7 @@ class CollisionDetectorTest {
         when(mockedWorld.getEntity(entity2.getID())).thenReturn(entity2);
         return mockedWorld;
     }
-    private Entity createEntity(
+    private Entity createMockEntity(
             String entityID, int entityLife, float entityX, float entityY, float entityRadius
     ) {
         Entity entity = mock(Entity.class);
